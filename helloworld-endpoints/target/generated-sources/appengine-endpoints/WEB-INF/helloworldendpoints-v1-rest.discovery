@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/1WlXaiUGqLUegjcej1BHbaFIT58\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/iurfwoZzxLeWej-2Ola8YPlkQpU\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -71,8 +71,8 @@
   }
  },
  "schemas": {
-  "HelloClass": {
-   "id": "HelloClass",
+  "CompanyInfo": {
+   "id": "CompanyInfo",
    "type": "object",
    "properties": {
     "message": {
@@ -82,60 +82,28 @@
   }
  },
  "methods": {
-  "getEmailAndIng": {
-   "id": "helloworldendpoints.getEmailAndIng",
-   "path": "getEmailAndIng",
-   "httpMethod": "GET",
-   "parameters": {
-    "userEmail": {
-     "type": "string",
-     "required": true,
-     "location": "query"
-    },
-    "userIngredient": {
-     "type": "string",
-     "required": true,
-     "location": "query"
-    }
-   },
-   "parameterOrder": [
-    "userEmail",
-    "userIngredient"
-   ],
-   "response": {
-    "$ref": "HelloClass"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
-  },
-  "sayHello": {
-   "id": "helloworldendpoints.sayHello",
-   "path": "sayHello",
-   "httpMethod": "GET",
-   "response": {
-    "$ref": "HelloClass"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
-  },
   "sayHelloByName": {
    "id": "helloworldendpoints.sayHelloByName",
    "path": "sayHelloByName",
    "httpMethod": "GET",
    "parameters": {
-    "name": {
+    "company": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "race": {
      "type": "string",
      "required": true,
      "location": "query"
     }
    },
    "parameterOrder": [
-    "name"
+    "company",
+    "race"
    ],
    "response": {
-    "$ref": "HelloClass"
+    "$ref": "CompanyInfo"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

@@ -72,12 +72,13 @@ function greetGenerically () {
  */
 function greetByName () {
 	// Get the name from the name_field element
-	var name = document.getElementById("name_field").value;
+	var race = document.getElementById("race_id").value;
+	var company = document.getElementById("company_id").value;
 	
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': name});
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'race': race, 'company': company});
 	request.execute(sayHelloCallback);
 }
 
