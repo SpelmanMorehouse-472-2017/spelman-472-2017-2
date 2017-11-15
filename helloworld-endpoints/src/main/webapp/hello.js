@@ -87,6 +87,7 @@ function greetByName () {
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	//alert(response.message);	//the box
+	document.write(response.message);
 }
 
 
