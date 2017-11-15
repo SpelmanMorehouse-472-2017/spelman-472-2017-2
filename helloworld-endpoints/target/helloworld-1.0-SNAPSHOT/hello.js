@@ -40,18 +40,18 @@ function loadCallback () {
 
 function enableButtons () {
 	// Set the onclick action for the first button
-	btn = document.getElementById("input_greet_generically");
-	btn.onclick= function(){greetGenerically();};
+	//btn = document.getElementById("input_greet_generically");
+	//btn.onclick= function(){greetGenerically();};
 	
 	// Update the button label now that the button is active
-	btn.value="Click me for a generic greeting";
+	//btn.value="Click me for a generic greeting";
 	
 	// Set the onclick action for the second button
 	btn = document.getElementById("input_greet_by_name");
 	btn.onclick=function(){greetByName();};
 	
 	// Update the button label now that the button is active
-	btn.value="Click me for a personal greeting";
+	btn.value="Click for results";
 }
 
 /*
@@ -72,12 +72,13 @@ function greetGenerically () {
  */
 function greetByName () {
 	// Get the name from the name_field element
-	var name = document.getElementById("name_field").value;
+	var race = document.getElementById("race_id").value;
+	var company = document.getElementById("company_id").value;
 	
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': name});
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'race': race, 'company': company});
 	request.execute(sayHelloCallback);
 }
 
@@ -85,7 +86,9 @@ function greetByName () {
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
-	alert(response.message);	
+	//alert(response.message);	//the box
+	document.write(response.message);
+	
 }
 
 

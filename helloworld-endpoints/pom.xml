@@ -18,6 +18,11 @@
     </prerequisites>
 
     <dependencies>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-bigquery</artifactId>
+       <version>0.26.0-beta</version>
+    </dependency>
         <!-- Compile/runtime dependencies -->
         <dependency>
             <groupId>com.google.appengine</groupId>

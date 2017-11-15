@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/vIfv_4CaO7e3nKzloakfJkrNbCg\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/iurfwoZzxLeWej-2Ola8YPlkQpU\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -11,9 +11,9 @@
   "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
  },
  "protocol": "rest",
- "baseUrl": "https://your-app-id.appspot.com/_ah/api/helloworldendpoints/v1/",
+ "baseUrl": "https://spelman-472-2017-2.appspot.com/_ah/api/helloworldendpoints/v1/",
  "basePath": "/_ah/api/helloworldendpoints/v1/",
- "rootUrl": "https://your-app-id.appspot.com/_ah/api/",
+ "rootUrl": "https://spelman-472-2017-2.appspot.com/_ah/api/",
  "servicePath": "helloworldendpoints/v1/",
  "batchPath": "batch",
  "parameters": {
@@ -71,8 +71,8 @@
   }
  },
  "schemas": {
-  "HelloClass": {
-   "id": "HelloClass",
+  "CompanyInfo": {
+   "id": "CompanyInfo",
    "type": "object",
    "properties": {
     "message": {
@@ -82,33 +82,28 @@
   }
  },
  "methods": {
-  "sayHello": {
-   "id": "helloworldendpoints.sayHello",
-   "path": "sayHello",
-   "httpMethod": "GET",
-   "response": {
-    "$ref": "HelloClass"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
-  },
   "sayHelloByName": {
    "id": "helloworldendpoints.sayHelloByName",
    "path": "sayHelloByName",
    "httpMethod": "GET",
    "parameters": {
-    "name": {
+    "company": {
+     "type": "string",
+     "required": true,
+     "location": "query"
+    },
+    "race": {
      "type": "string",
      "required": true,
      "location": "query"
     }
    },
    "parameterOrder": [
-    "name"
+    "company",
+    "race"
    ],
    "response": {
-    "$ref": "HelloClass"
+    "$ref": "CompanyInfo"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

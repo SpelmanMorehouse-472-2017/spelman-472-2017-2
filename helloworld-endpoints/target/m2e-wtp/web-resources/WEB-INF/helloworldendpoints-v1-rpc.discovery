@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/vIfv_4CaO7e3nKzloakfJkrNbCg\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/iurfwoZzxLeWej-2Ola8YPlkQpU\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -11,8 +11,8 @@
   "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
  },
  "protocol": "rpc",
- "rootUrl": "https://your-app-id.appspot.com/_ah/api/",
- "rpcUrl": "https://your-app-id.appspot.com/_ah/api/rpc",
+ "rootUrl": "https://spelman-472-2017-2.appspot.com/_ah/api/",
+ "rpcUrl": "https://spelman-472-2017-2.appspot.com/_ah/api/rpc",
  "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {
@@ -69,8 +69,8 @@
   }
  },
  "schemas": {
-  "HelloClass": {
-   "id": "HelloClass",
+  "CompanyInfo": {
+   "id": "CompanyInfo",
    "type": "object",
    "properties": {
     "message": {
@@ -80,30 +80,25 @@
   }
  },
  "methods": {
-  "helloworldendpoints.sayHello": {
-   "id": "helloworldendpoints.sayHello",
-   "allowGet": true,
-   "returns": {
-    "$ref": "HelloClass"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
-  },
   "helloworldendpoints.sayHelloByName": {
    "id": "helloworldendpoints.sayHelloByName",
    "allowGet": true,
    "parameters": {
-    "name": {
+    "company": {
+     "type": "string",
+     "required": true
+    },
+    "race": {
      "type": "string",
      "required": true
     }
    },
    "parameterOrder": [
-    "name"
+    "company",
+    "race"
    ],
    "returns": {
-    "$ref": "HelloClass"
+    "$ref": "CompanyInfo"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"
