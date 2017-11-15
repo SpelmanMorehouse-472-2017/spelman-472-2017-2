@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+html {
+	background-color: yellow;
+}
+
+h1,h3,input {
+	text-align: center;
+}

@@ -25,15 +25,18 @@ import com.google.cloud.bigquery.QueryResponse;
 public class Query {
 	private final static Logger log =  Logger.getLogger(Query.class.getName());
 	
-	public static CompanyInfo lookUp() {
+	public static CompanyInfo lookUp(String raceVar, String companyVar) {
 		BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 		
 		 QueryJobConfiguration queryConfig =
-		    	    QueryJobConfiguration.newBuilder(
+		    	    QueryJobConfiguration.newBuilder(/*
 		    	            "SELECT "
 		    	                + "APPROX_TOP_COUNT(corpus, 10) as title, "
 		    	                + "COUNT(*) as unique_words "
-		    	                + "FROM `bigquery-public-data.samples.shakespeare`;")
+		    	                + "FROM `bigquery-public-data.samples.shakespeare`;")*/
+		    	    		"SELECT job, job_skill"
+		    	    			+ "FROM `vallydata.newvallydaya_2017`"
+		    	    			+ "WHERE race = raceVar, company = companyVar;")
 		    	        // Use standard SQL syntax for queries.
 		    	        // See: https://cloud.google.com/bigquery/sql-reference/
 		    	        .setUseLegacySql(false)
@@ -44,7 +47,13 @@ public class Query {
 		    	Job queryJob = bigquery.create(JobInfo.newBuilder(queryConfig).setJobId(jobId).build());
 
 		    	// Wait for the query to complete.
-		    	queryJob = queryJob.waitFor();
+		    	try {
+					queryJob = queryJob.waitFor();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					//add something else 
+				}
 
 		    	// Check for errors
 		    	if (queryJob == null) {
@@ -58,7 +67,11 @@ public class Query {
 		    	// Get the results.
 		    	QueryResponse response = bigquery.getQueryResults(jobId);
 		    	log.warning(response.toString());
+		    	log.warning(queryJob.toString());
+		    	log.warning("hello");
 		    	
+		    	// why do we need new?
+		   return new CompanyInfo(raceVar, companyVar);
 		//return processResponse(response);
 	}
 	
