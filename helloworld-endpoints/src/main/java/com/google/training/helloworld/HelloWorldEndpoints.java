@@ -6,8 +6,9 @@ import com.google.api.server.spi.config.ApiMethod.HttpMethod;
 import com.google.api.server.spi.config.Named;
 
 /**
- * Defines endpoint functions APIs..
+ * Defines end point functions APIs..
  */
+
 @Api(name = "helloworldendpoints", version = "v1",
 scopes = {Constants.EMAIL_SCOPE },
         clientIds = {Constants.WEB_CLIENT_ID, Constants.API_EXPLORER_CLIENT_ID },
@@ -15,7 +16,7 @@ scopes = {Constants.EMAIL_SCOPE },
 
 public class HelloWorldEndpoints {
 
-   // Declare this method as a method available externally through Endpoints
+   // Declare this method as a method available externally through End points
     @ApiMethod(name = "sayHello", path = "sayHello",
             httpMethod = HttpMethod.GET)
 
@@ -23,7 +24,7 @@ public class HelloWorldEndpoints {
         return new HelloClass();
     }
 
-    // Declare this method as a method available externally through Endpoints
+    // Declare this method as a method available externally through End points
     @ApiMethod(name = "sayHelloByName", path = "sayHelloByName",
             httpMethod = HttpMethod.GET)
 
@@ -39,18 +40,6 @@ public class HelloWorldEndpoints {
     public HelloClass getEmailAndIng (@Named("userEmail") String uEmail, @Named("userIngredient") String ing) {
         return new HelloClass(uEmail,ing);
     }
-    /*
-    @ApiMethod(name = "getValidIngredient", path = "getValidIngredient", httpMethod = HttpMethod.GET)
-    
-    public HelloClass getValidIngredient (@Named("validIngredient") String vIngredient) {
-    		return new HelloClass(vIngredient);
-    }
-    */
-    
-    
   
- 
       
 }
-
-
