@@ -70,7 +70,7 @@ function greetGenerically () {
  * Execute a request to the sayHelloByName() endpoints function.
  * Illustrates calling an endpoints function that takes an argument.
  */
-function greetByName () {
+/*function greetByName () {
 	// Get the name from the name_field element
 	var race = document.getElementById("race_id").value;
 	var company = document.getElementById("company_id").value;
@@ -80,14 +80,18 @@ function greetByName () {
 	// On success, pass the response to sayHelloCallback()
 	var request = gapi.client.helloworldendpoints.sayHelloByName({'race': race, 'company': company});
 	request.execute(sayHelloCallback);
-}
+}*/
 
 // Process the JSON response
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
+	$( ".hide" ).hide();
 	//alert(response.message);	//the box
-	document.write(response.message);
+	//document.write(response.message);
+	//add text to empty paragraph tag
+	$('#results').html(response.message);
+	
 }
 
 

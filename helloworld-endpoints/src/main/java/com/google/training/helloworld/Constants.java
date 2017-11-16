@@ -3,7 +3,7 @@ package com.google.training.helloworld;
 import com.google.api.server.spi.Constant;
 
 /**
- * Cameron - Contains the client IDs and scopes for allowed clients consuming your API...
+ *  Contains the client IDs and scopes for allowed clients consuming your API...
  */
 public class Constants {
   public static final String WEB_CLIENT_ID = "replace this with your web client ID";

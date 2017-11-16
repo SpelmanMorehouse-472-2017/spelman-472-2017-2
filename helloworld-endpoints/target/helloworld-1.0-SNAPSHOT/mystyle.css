@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 html {
-	background-color: yellow;
+	background-color: lightgray;
 }
 
-h1,h3,input {
+h1,h3,input,p {
 	text-align: center;
 }

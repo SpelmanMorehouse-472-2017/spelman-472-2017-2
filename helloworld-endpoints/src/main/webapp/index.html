@@ -1,9 +1,14 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Hello World Endpoints</title>
 
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>BlackVally</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="hello.js"></script>
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 
@@ -13,16 +18,22 @@
 
 </head>
 
+
+
 <body>
-<H1>BlackVally</H1>
+<H1 class="hide">BlackVally</H1>
 
-<H3>Find the diversity in the job you want</H3>
+<H3 class="hide">Find the diversity in the job you want</H3>
   
-<P> What is your race? <input value ="" id="race_id"> What company do you want to work for? <input value ="" id="company_id"></P>
+<P class="hide"> What is your race? <input value ="" id="race_id"> What company do you want to work for? <input value ="" id="company_id"></P>
 
-<P><input id="input_greet_by_name" type="button" value="please wait" 
-  onclick="will_be_set_after_endpoints_apis_loaded"></P>
+<P class="hide"><input id="input_greet_by_name" type="button" value="please wait"  onclick="will_be_set_after_endpoints_apis_loaded"></P>
+
+<p id="results"></p>
   
 </body>
+
+
+
 
 </html>
