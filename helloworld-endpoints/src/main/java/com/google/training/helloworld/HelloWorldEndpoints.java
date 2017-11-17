@@ -12,15 +12,17 @@ scopes = {Constants.EMAIL_SCOPE },
         description = "API for hello world endpoints.")
 
 public class HelloWorldEndpoints {
-	
-	//Query query = new Query();
 
     // Declare this method as a method available externally through End points
     @ApiMethod(name = "sayHelloByName", path = "sayHelloByName",
             httpMethod = HttpMethod.GET)
 
-    public CompanyInfo sayHelloByName (@Named("race") String raceVar, @Named("company") String companyVar) {
+   /* public CompanyInfo sayHelloByName (@Named("race") String raceVar, @Named("company") String companyVar) {
     		//return new CompanyInfo(raceVar, companyVar);
         return Query.lookUp(raceVar, companyVar);
-    }     
+    }  */
+    
+    public CompanyInfo sayHelloByName (@Named("company") String companyVar) {
+    return Query.lookUp(companyVar);
+}  
 }

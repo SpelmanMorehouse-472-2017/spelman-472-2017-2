@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/iurfwoZzxLeWej-2Ola8YPlkQpU\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/B_O2eyCDj51lCm1YbK0YJ_RrRD8\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -91,16 +91,10 @@
      "type": "string",
      "required": true,
      "location": "query"
-    },
-    "race": {
-     "type": "string",
-     "required": true,
-     "location": "query"
     }
    },
    "parameterOrder": [
-    "company",
-    "race"
+    "company"
    ],
    "response": {
     "$ref": "CompanyInfo"

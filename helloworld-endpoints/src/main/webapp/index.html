@@ -1,16 +1,18 @@
 <!doctype html>
-
 <html>
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BlackVally</title>
 
+<link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="hello.js"></script>
-<link rel="stylesheet" type="text/css" href="mystyle.css">
 
 <!--  Load the Google APIs Javascript client library -->
 <!--  Then call the init function, which is defined in hello.js -->
@@ -21,14 +23,93 @@
 
 
 <body>
-<H1 class="hide">BlackVally</H1>
 
-<H3 class="hide">Find the diversity in the job you want</H3>
-  
-<P class="hide"> What is your race? <input value ="" id="race_id"> What company do you want to work for? <input value ="" id="company_id"></P>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
 
-<P class="hide"><input id="input_greet_by_name" type="button" value="please wait"  onclick="will_be_set_after_endpoints_apis_loaded"></P>
+ <form class="hide" action="index.html" method="post">
+ 
+ <p class="buffer"></p>
+ <p class="buffer"></p>
+ <p class="buffer"></p>
+ <p class="buffer"></p>
+ <p class="buffer"></p>
+ <p class="buffer"></p>
+ <H1 class="hide">BlackVally</H1>
+ <p class="buffer"></p>
+ 	
+ 	 <fieldset class="hide"> 
+          <legend class="hide"><span class="number">1</span>Start Here</legend>
+          
+          <p class="buffer"></p>
+          <p class="buffer"></p>
+          
+          <label class="hide" for="name">Name:</label>
+          <input class="hide" type="text" id="name" name="user_name">
+          
+          <p class="buffer"></p>
+          
+          <label class="hide" for="mail">Email:</label>
+          <input class="hide" type="email" id="mail" name="user_email">
+     </fieldset>
+        
+     <fieldset class="hide">
+        <label for="job" class="hide">Company:</label>
+        <select id="company_id" name="user_job" class="hide">
+          <optgroup>
+            <option value="frontend_developer">HPE</option>
+            <option value="php_developor">Lyft</option>
+            <option value="python_developer">Uber</option>
+            <option value="rails_developer">View</option>
+            <option value="web_designer">eBay</option>
+            <option value="WordPress_developer">Adobe</option>
+            <option value="WordPress_developer">Apple</option>
+            <option value="WordPress_developer">Cisco</option>
+            <option value="WordPress_developer">Intel</option>
+            <option value="WordPress_developer">Airbnb</option>
+            <option value="WordPress_developer">Google</option>
+            <option value="WordPress_developer">Intuit</option>
+            <option value="WordPress_developer">Nvidia</option>
+            <option value="WordPress_developer">Square</option>
+            <option value="WordPress_developer">23andMe</option>
+            <option value="WordPress_developer">HP Inc.</option>
+            <option value="WordPress_developer">Twitter</option>
+            <option value="WordPress_developer">Facebook</option>
+            <option value="WordPress_developer">LinkedIn</option>
+            <option value="WordPress_developer">Pinterest</option>
+            <option value="WordPress_developer">MobileIron</option>
+            <option value="WordPress_developer">Salesforce</option>
+          </optgroup>
+        </select>
+        
+        <p class="buffer"></p>
+        <label class="hide">Skill Level:</label>
+        <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light hide" for="development">High</label><br>
+        <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light hide" for="design">Medium</label><br>
+        <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light hide" for="business">Low</label>  
+      </fieldset>   
+        
+     <p class="buffer"></p>
+     
+     <!-- <button>Apply Now!</button> -->
+     <P class="hide next"><input id="input_greet_by_name" type="button" value="Loding..."  onclick="will_be_set_after_endpoints_apis_loaded"></P> 
+     
+     <p class="buffer"></p>
+     <p class="buffer"></p>
 
+ </form>
+
+<!--  <P class="hide"> What is your race? <input value ="" id="race_id"> What company do you want to work for? <input value ="" id="company_id"></P> -->
 <p id="results"></p>
   
 </body>

@@ -39,16 +39,8 @@ function loadCallback () {
 }
 
 function enableButtons () {
-	// Set the onclick action for the first button
-	//btn = document.getElementById("input_greet_generically");
-	//btn.onclick= function(){greetGenerically();};
-	
-	// Update the button label now that the button is active
-	//btn.value="Click me for a generic greeting";
-	
-	// Set the onclick action for the second button
 	btn = document.getElementById("input_greet_by_name");
-	btn.onclick=function(){greetByName();};
+	btn.onclick=function(){greetByName()};
 	
 	// Update the button label now that the button is active
 	btn.value="Click for results";
@@ -70,29 +62,23 @@ function greetGenerically () {
  * Execute a request to the sayHelloByName() endpoints function.
  * Illustrates calling an endpoints function that takes an argument.
  */
-/*function greetByName () {
+function greetByName () {
 	// Get the name from the name_field element
-	var race = document.getElementById("race_id").value;
+	//var race = document.getElementById("race_id").value;
 	var company = document.getElementById("company_id").value;
 	
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'race': race, 'company': company});
+	//var request = gapi.client.helloworldendpoints.sayHelloByName({'race': race, 'company': company});
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'company': company});
 	request.execute(sayHelloCallback);
-}*/
+}
 
 // Process the JSON response
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	$( ".hide" ).hide();
-	//alert(response.message);	//the box
-	//document.write(response.message);
-	//add text to empty paragraph tag
-	$('#results').html(response.message);
-	
+	$('#results').html(response.message);	
 }
-
-
-
