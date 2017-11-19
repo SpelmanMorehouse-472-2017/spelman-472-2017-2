@@ -1,13 +1,19 @@
 @charset "UTF-8";
 
+html {
+  background: #b79891; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b79891, #94716b); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b79891, #94716b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .buffer {
-	35px;
+	height: 1px;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
   color: #384047;
-  color: #DAF7A6;
+  color: black
 }
 
 form {
@@ -56,7 +62,7 @@ select {
   border-radius: 2px;
 }
 
-.input_greet_by_name {
+.next {
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;

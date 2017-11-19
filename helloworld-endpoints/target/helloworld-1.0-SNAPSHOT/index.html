@@ -17,6 +17,7 @@
 <!--  Load the Google APIs Javascript client library -->
 <!--  Then call the init function, which is defined in hello.js -->
 <script src="https://apis.google.com/js/client.js?onload=init"></script>
+<link rel="shortcut icon" type="image/png" href="logo.jpg"/>
 
 </head>
 
@@ -26,24 +27,9 @@
 
 <p class="buffer"></p>
 <p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
-<p class="buffer"></p>
 
  <form class="hide" action="index.html" method="post">
  
- <p class="buffer"></p>
- <p class="buffer"></p>
- <p class="buffer"></p>
- <p class="buffer"></p>
- <p class="buffer"></p>
  <p class="buffer"></p>
  <H1 class="hide">BlackVally</H1>
  <p class="buffer"></p>
@@ -51,7 +37,6 @@
  	 <fieldset class="hide"> 
           <legend class="hide"><span class="number">1</span>Start Here</legend>
           
-          <p class="buffer"></p>
           <p class="buffer"></p>
           
           <label class="hide" for="name">Name:</label>
@@ -63,7 +48,7 @@
           <input class="hide" type="email" id="mail" name="user_email">
      </fieldset>
         
-     <fieldset class="hide">
+        <fieldset class="hide"> 
         <label for="job" class="hide">Company:</label>
         <select id="company_id" name="user_job" class="hide">
           <optgroup>
@@ -90,10 +75,9 @@
             <option value="WordPress_developer">MobileIron</option>
             <option value="WordPress_developer">Salesforce</option>
           </optgroup>
-        </select>
+        </select> 
         
-        <p class="buffer"></p>
-        <label class="hide">Skill Level:</label>
+        <label class="hide">Technical Skill Level:</label>
         <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light hide" for="development">High</label><br>
         <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light hide" for="design">Medium</label><br>
         <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light hide" for="business">Low</label>  
@@ -102,12 +86,14 @@
      <p class="buffer"></p>
      
      <!-- <button>Apply Now!</button> -->
-     <P class="hide next"><input id="input_greet_by_name" type="button" value="Loding..."  onclick="will_be_set_after_endpoints_apis_loaded"></P> 
+     <p class="hide"><input class="next" id="input_greet_by_name" type="button" value="Loding..."  onclick="will_be_set_after_endpoints_apis_loaded"></p> 
      
-     <p class="buffer"></p>
      <p class="buffer"></p>
 
  </form>
+ 
+<p class="buffer"></p>
+<p class="buffer"></p>
 
 <!--  <P class="hide"> What is your race? <input value ="" id="race_id"> What company do you want to work for? <input value ="" id="company_id"></P> -->
 <p id="results"></p>
