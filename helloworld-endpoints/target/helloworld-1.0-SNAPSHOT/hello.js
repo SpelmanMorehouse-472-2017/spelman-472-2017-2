@@ -43,7 +43,7 @@ function enableButtons () {
 	btn.onclick=function(){greetByName()};
 	
 	// Update the button label now that the button is active
-	btn.value="Click for results";
+	btn.value="See Stats Now!";
 }
 
 /*
@@ -80,5 +80,61 @@ function greetByName () {
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	$( ".hide" ).hide();
-	$('#results').html(response.message);	
+	$('#results').html(response.message);
+	$('#chartdiv').removeClass('hidden');
+	displayChart(response);
+	
+	
 }
+
+function displayChart(response) {
+	$(document).ready(function(){
+
+	    var chart = AmCharts.makeChart( "chartdiv", {
+	        "type": "pie",
+	        "theme": "light",
+	        "dataProvider": [ {
+	            "job": "Professionals",
+	            "count": 301.9
+	        }, {
+	            "job": "Administrative support",
+	            "count": 301.9
+	        }, {
+	            "job": "Lead/Manager",
+	            "count": 201.1
+	        }, {
+	            "job": "Operatives",
+	            "count": 165.8
+	        }, {
+	            "job": "Technicians",
+	            "count": 139.9
+	        }, {
+	            "job": "Craft workers",
+	            "count": 128.3
+	        }, {
+	            "job": "Sales workers",
+	            "count": 99
+	        }, {
+	            "job": "Service workers",
+	            "count": 60
+	        }, {
+	            "job": "laborers and helpers",
+	            "count": 50
+	        } ],
+
+	        "valueField": "count",
+	        "titleField": "job",
+	        "balloon":{
+	            "fixedPosition":true
+	        },
+	        "export": {
+	            "enabled": true
+	        }
+
+	    } );
+	});
+}
+
+
+
+

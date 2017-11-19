@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/B_O2eyCDj51lCm1YbK0YJ_RrRD8\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/4mRFKIc6cep5qZB68O6Okjc7EiM\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -73,10 +73,23 @@
    "id": "CompanyInfo",
    "type": "object",
    "properties": {
+    "aList": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "map": {
+     "$ref": "JsonMap"
+    },
     "message": {
      "type": "string"
     }
    }
+  },
+  "JsonMap": {
+   "id": "JsonMap",
+   "type": "object"
   }
  },
  "methods": {

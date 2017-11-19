@@ -1,4 +1,5 @@
 package com.google.training.helloworld;
+
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
@@ -24,5 +25,6 @@ public class HelloWorldEndpoints {
     
     public CompanyInfo sayHelloByName (@Named("company") String companyVar) {
     return Query.lookUp(companyVar);
-}  
+}
+    
 }

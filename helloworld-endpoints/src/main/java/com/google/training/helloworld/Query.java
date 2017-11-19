@@ -14,6 +14,7 @@ import com.google.cloud.bigquery.QueryResponse;
 import com.google.cloud.bigquery.QueryResult;
 
 import java.util.ArrayList;
+//import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -23,8 +24,10 @@ public class Query {
 	//public static CompanyInfo lookUp(String raceVar, String companyVar) {
 	
 	public static CompanyInfo lookUp(String companyVar) {
+		log.warning(companyVar);
 		
 		ArrayList<String> aList = new ArrayList<>();
+		//HashMap<Integer, ArrayList<String>> map = new HashMap<>();
 	
 		BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	    QueryJobConfiguration queryConfig =
@@ -35,9 +38,8 @@ public class Query {
 	                    + "FROM `bigquery-public-data.samples.shakespeare`;")*/
 	        		/*"SELECT job, IFNULL(job_skill,\"\") FROM `vallydata.newvallydata_2017`" 
     	    			+ "WHERE race = \"" + raceVar + "\"AND company = \"" + companyVar + "\";")*/
-	        		"SELECT job FROM `vallydata.vallydata_aa` WHERE company = \"" + companyVar + "\";")
+	        		"SELECT job,count FROM `vallydata.vallydata_aa` WHERE company = \"" + companyVar + "\" AND race = 'Black';")
 	        
-	        /*"SELECT job FROM `vallydata.newvallydata_2017` WHERE company = \"" + companyVar + "\";") */
 	            // Use standard SQL syntax for queries.
 	            // See: https://cloud.google.com/bigquery/sql-reference/
 	            .setUseLegacySql(false)
@@ -53,7 +55,7 @@ public class Query {
 			queryJob = queryJob.waitFor();
 		} catch (InterruptedException e) {
 		    //return new CompanyInfo(raceVar, companyVar);
-			 return new CompanyInfo(companyVar);
+			return new CompanyInfo(aList);
 		}
 	    
 
@@ -70,25 +72,23 @@ public class Query {
 	    QueryResponse response = bigquery.getQueryResults(jobId);
 	    QueryResult result = response.getResult();
 	    
-	    if (result == null) {
-	    		log.warning("no results");
-	    }
+	    if (result == null) { log.warning("no results"); }
 	    
 	    // Print rows from query
-	    while (result != null) {
 	      for (List<FieldValue> row : result.iterateAll()) {
+	    	  	//aList.clear();
 	        String job = row.get(0).getStringValue();
-	        //String job_skill = row.get(1).getStringValue();
-	        log.warning(job);
-	       // log.warning(job_skill);
 	        aList.add(job);
+	        String count = row.get(1).getStringValue();
+	        aList.add(count);
+	        //String count = row.get(2).getStringValue();
+	        //aList.add(count);
+	        //String job_skill = row.get(3).getStringValue();
+	        //aList.add(job_skill);
 	      }
-	    }
-	    
-	    //log.warning(aList.toString());
 	    
 	    //return new CompanyInfo(raceVar, companyVar);
-	    return new CompanyInfo(companyVar);
+	    return new CompanyInfo(aList);
 	    
 	    
 	  }
