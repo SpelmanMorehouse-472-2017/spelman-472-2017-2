@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/4mRFKIc6cep5qZB68O6Okjc7EiM\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/RPprQ89SLI7dVjNAWU8oiQdgh5A\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -79,17 +79,50 @@
       "type": "string"
      }
     },
-    "map": {
-     "$ref": "JsonMap"
+    "adminCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "craftCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "execCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "laborCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "leadCount": {
+     "type": "integer",
+     "format": "int32"
     },
     "message": {
      "type": "string"
+    },
+    "operativesCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "proCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "salesCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "serviceCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "techCount": {
+     "type": "integer",
+     "format": "int32"
     }
    }
-  },
-  "JsonMap": {
-   "id": "JsonMap",
-   "type": "object"
   }
  },
  "methods": {
@@ -100,10 +133,15 @@
     "company": {
      "type": "string",
      "required": true
+    },
+    "race": {
+     "type": "string",
+     "required": true
     }
    },
    "parameterOrder": [
-    "company"
+    "company",
+    "race"
    ],
    "returns": {
     "$ref": "CompanyInfo"

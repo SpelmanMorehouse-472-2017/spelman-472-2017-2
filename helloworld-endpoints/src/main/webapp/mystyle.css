@@ -131,7 +131,7 @@ label.light {
      width: 50%;
 }
 
-.show {
+.show1 {
 	text-align: center;
 	display: inline-block;
 	-ms-flex-item-align: center;
@@ -151,8 +151,12 @@ label.light {
   border: solid 2px #41403E;
 }
 
-.show:hover {
+.show1:hover {
 	box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+}
+
+.special {
+	display: inline-block;
 }
 
 

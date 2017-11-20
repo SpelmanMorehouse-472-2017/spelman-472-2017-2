@@ -25,8 +25,7 @@ public class CompanyInfo {
 	   HashMap<String, Integer> chartData = new HashMap<>();
 	   ArrayList<Integer> countList = new ArrayList<Integer>();
     
-        for( List<String> value : map.values()) { 
-        	
+        for( List<String> value : map.values()) { 	
         	//change to ints
         	int one = Integer.parseInt(value.get(0));
         int two = Integer.parseInt(value.get(1));
@@ -41,7 +40,28 @@ public class CompanyInfo {
         	index++;
         }
         
+    
+        	this.salesCount = chartData.get("Sales workers");
+        	
+        	this.laborCount = chartData.get("laborers and helpers");
+  
+        	this.proCount = chartData.get("Professionals");
+        	
+        	this.execCount = chartData.get("Executive/Senior Manager");
+        	
+        	this.adminCount = chartData.get("Administrative support");
+        	
+        	this.techCount = chartData.get("Technicians");
+        	
+        	this.operativesCount = chartData.get("operatives");
+
+        	this.craftCount = chartData.get("Craft workers");
+        	
+        	this.serviceCount = chartData.get("Service workers");
+
+        	this.leadCount = chartData.get("Lead/Manager");
+     
+       
         this.message = chartData.toString(); 
-        
     }
 }

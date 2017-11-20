@@ -78,8 +78,9 @@ function updateRace() {
 }
 
 function updateRaceCallback(response) {
-	//$('#results').reset()
 	$('#results').html(response.message);
+	$('#chartdiv').removeClass('hidden');
+	displayChart(response);
 }
 
 function greetByName () {
@@ -105,12 +106,11 @@ function sayHelloCallback (response) {
 	$( ".show" ).show();
 	$('#results').html(response.message);
 	$('#chartdiv').removeClass('hidden');
-	displayChart(response.message);
+	displayChart(response);
 	
 }
 
 function displayChart(response) {
-	$(document).ready(function(){
 	    
 	    AmCharts.makeChart("chartdiv",
 				{
@@ -124,53 +124,52 @@ function displayChart(response) {
 					"allLabels": [],
 					"balloon": {},
 					"titles": [],
-					"dataProvider": response.message
-						/*[
+					"dataProvider":
+						[
 						{
 							"job": "Professionals",
-							"count": 222
+							"count": response.proCount
 						},
 						{
 							"job": "Administrative support",
-							"count": "131.1"
+							"count": response.adminCount
 						},
 						{
 							"job": "Lead/Manager",
-							"count": 115.8
+							"count": response.leadCount
 						},
 						{
 							"job": "Operatives",
-							"count": 109.9
+							"count": response.operativesCount
 						},
 						{
 							"job": "Technicians",
-							"count": 108.3
+							"count": response.techCount
 						},
 						{
 							"job": "Craft workers",
-							"count": 65
+							"count": response.craftCount
 						},
 						{
 							"job": "Sales workers",
-							"count": 20
+							"count": response.salesCount
 						},
 						{
 							"job": "Service workers",
-							"count": 90
+							"count": response.serviceCount
 						},
 						{
 							"job": "Executive/Senior Manager",
-							"count": 111
+							"count": response.execCount
 						},
 						{
 							"job": "laborers and helpers",
-							"count": 300
+							"count": response.laborCount
 						} 
-					] */
+					] 
 				} 
 			); 
-	
-	});
+
 }
 
 

@@ -54,9 +54,7 @@ public class Query {
 		BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	    QueryJobConfiguration queryConfig =
 	        QueryJobConfiguration.newBuilder(
-	               
-	        		/*"SELECT job, IFNULL(job_skill,\"\") FROM `vallydata.newvallydata_2017`" 
-    	    			+ "WHERE race = \"" + raceVar + "\"AND company = \"" + companyVar + "\";")*/
+	          
 	        		"SELECT job,count FROM " + companyTable.get(companyVar) + " WHERE company = \"" + companyVar + "\" AND race =  \"" + raceVar + "\";")
 	            // Use standard SQL syntax for queries.
 	            // See: https://cloud.google.com/bigquery/sql-reference/
@@ -67,7 +65,6 @@ public class Query {
 	    JobId jobId = JobId.of(UUID.randomUUID().toString());
 	    Job queryJob = bigquery.create(JobInfo.newBuilder(queryConfig).setJobId(jobId).build());
 
-	    
 	    // Wait for the query to complete.
 	    try {
 			queryJob = queryJob.waitFor();
@@ -75,7 +72,6 @@ public class Query {
 			return new CompanyInfo(map);
 		}
 	    
-
 	    // Check for errors
 	    if (queryJob == null) {
 	      throw new RuntimeException("Job no longer exists");
@@ -83,8 +79,7 @@ public class Query {
 	      // You can also look at queryJob.getStatus().getExecutionErrors() for all errors, not just the latest one.
 	      throw new RuntimeException(queryJob.getStatus().getError().toString());
 	    }
-
-	   
+   
 	    // Get the results.
 	    QueryResponse response = bigquery.getQueryResults(jobId);
 	    QueryResult result = response.getResult();
