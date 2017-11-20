@@ -10,6 +10,8 @@
  * The init() function loads the helloworldendpoints API.
  */
 
+var companyGlobal;
+
 function init() {
 	
 	// You need to pass the root path when you load your API
@@ -44,6 +46,9 @@ function enableButtons () {
 	
 	// Update the button label now that the button is active
 	btn.value="See Stats Now!";
+	
+	btn = document.getElementById("input_update_race");
+	btn.onclick=function(){updateRace()};
 }
 
 /*
@@ -62,16 +67,33 @@ function greetGenerically () {
  * Execute a request to the sayHelloByName() endpoints function.
  * Illustrates calling an endpoints function that takes an argument.
  */
+
+function updateRace() {
+	
+	//log.warning("made it here:)")
+	var race = document.getElementById("race_id").value;
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'company': companyGlobal, 'race': race,});
+	request.execute(updateRaceCallback);
+	
+}
+
+function updateRaceCallback(response) {
+	//$('#results').reset()
+	$('#results').html(response.message);
+}
+
 function greetByName () {
 	// Get the name from the name_field element
 	//var race = document.getElementById("race_id").value;
 	var company = document.getElementById("company_id").value;
+	companyGlobal = company;
+	race = "Black";
 	
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
 	//var request = gapi.client.helloworldendpoints.sayHelloByName({'race': race, 'company': company});
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'company': company});
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'company': company, 'race': race,});
 	request.execute(sayHelloCallback);
 }
 
@@ -80,58 +102,74 @@ function greetByName () {
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	$( ".hide" ).hide();
+	$( ".show" ).show();
 	$('#results').html(response.message);
 	$('#chartdiv').removeClass('hidden');
-	displayChart(response);
-	
+	displayChart(response.message);
 	
 }
 
 function displayChart(response) {
 	$(document).ready(function(){
-
-	    var chart = AmCharts.makeChart( "chartdiv", {
-	        "type": "pie",
-	        "theme": "light",
-	        "dataProvider": [ {
-	            "job": "Professionals",
-	            "count": 301.9
-	        }, {
-	            "job": "Administrative support",
-	            "count": 301.9
-	        }, {
-	            "job": "Lead/Manager",
-	            "count": 201.1
-	        }, {
-	            "job": "Operatives",
-	            "count": 165.8
-	        }, {
-	            "job": "Technicians",
-	            "count": 139.9
-	        }, {
-	            "job": "Craft workers",
-	            "count": 128.3
-	        }, {
-	            "job": "Sales workers",
-	            "count": 99
-	        }, {
-	            "job": "Service workers",
-	            "count": 60
-	        }, {
-	            "job": "laborers and helpers",
-	            "count": 50
-	        } ],
-
-	        "valueField": "count",
-	        "titleField": "job",
-	        "balloon":{
-	            "fixedPosition":true
-	        },
-	        "export": {
-	            "enabled": true
-	        }
-
-	    } );
+	    
+	    AmCharts.makeChart("chartdiv",
+				{
+					"type": "pie",
+					"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+					"outlineThickness": 1,
+					"titleField": "job",
+					"valueField": "count",
+					"fontSize": 12,
+					"theme": "light",
+					"allLabels": [],
+					"balloon": {},
+					"titles": [],
+					"dataProvider": response.message
+						/*[
+						{
+							"job": "Professionals",
+							"count": 222
+						},
+						{
+							"job": "Administrative support",
+							"count": "131.1"
+						},
+						{
+							"job": "Lead/Manager",
+							"count": 115.8
+						},
+						{
+							"job": "Operatives",
+							"count": 109.9
+						},
+						{
+							"job": "Technicians",
+							"count": 108.3
+						},
+						{
+							"job": "Craft workers",
+							"count": 65
+						},
+						{
+							"job": "Sales workers",
+							"count": 20
+						},
+						{
+							"job": "Service workers",
+							"count": 90
+						},
+						{
+							"job": "Executive/Senior Manager",
+							"count": 111
+						},
+						{
+							"job": "laborers and helpers",
+							"count": 300
+						} 
+					] */
+				} 
+			); 
+	
 	});
 }
 

@@ -14,32 +14,50 @@ import com.google.cloud.bigquery.QueryResponse;
 import com.google.cloud.bigquery.QueryResult;
 
 import java.util.ArrayList;
-//import java.util.HashMap;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
 public class Query {
 	
 	private final static Logger log =  Logger.getLogger(Query.class.getName());
-	//public static CompanyInfo lookUp(String raceVar, String companyVar) {
+	private static HashMap<String, String> companyTable = new HashMap<>();
 	
-	public static CompanyInfo lookUp(String companyVar) {
-		log.warning(companyVar);
+	public static CompanyInfo lookUp(String companyVar, String raceVar) {
 		
-		ArrayList<String> aList = new ArrayList<>();
-		//HashMap<Integer, ArrayList<String>> map = new HashMap<>();
+		companyTable.put("HPE", "vallydata.vallydata_hh");
+		companyTable.put("Lyft", "vallydata.vallydata_ll");
+		companyTable.put("Uber", "vallydata.vallydata_uv");
+		companyTable.put("View", "vallydata.vallydata_uv");
+		companyTable.put("eBay", "vallydata.vallydata_ef");
+		companyTable.put("Adobe", "vallydata.vallydata_aa");
+		companyTable.put("Apple", "vallydata.vallydata_ac");
+		companyTable.put("Cisco", "vallydata.vallydata_ac");
+		companyTable.put("Intel", "vallydata.vallydata_ii");
+		companyTable.put("Airbnb", "vallydata.vallydata_aa");
+		companyTable.put("Google", "vallydata.vallydata_g2");
+		companyTable.put("Intuit", "vallydata.vallydata_ii");
+		companyTable.put("Nvidia", "vallydata.vallydata_mn");
+		companyTable.put("Square", "vallydata.vallydata_st");
+		companyTable.put("23andMe", "vallydata.vallydata_g2");
+		companyTable.put("HP Inc.", "vallydata.vallydata_hh");
+		companyTable.put("Twitter", "vallydata.vallydata_st");
+		companyTable.put("Facebook", "vallydata.vallydata_ef");
+		companyTable.put("LinkedIn", "vallydata.vallydata_ll");
+		companyTable.put("Pinterest", "vallydata.vallydata_ps");
+		companyTable.put("MobileIron", "vallydata.vallydata_mn");
+		companyTable.put("Salesforce", "vallydata.vallydata_ps");
+		
+		HashMap<String, List<String>> map = new HashMap<>();
 	
 		BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	    QueryJobConfiguration queryConfig =
 	        QueryJobConfiguration.newBuilder(
-	                /*"SELECT "
-	                    + "APPROX_TOP_COUNT(corpus, 10) as title, "
-	                    + "COUNT(*) as unique_words "
-	                    + "FROM `bigquery-public-data.samples.shakespeare`;")*/
+	               
 	        		/*"SELECT job, IFNULL(job_skill,\"\") FROM `vallydata.newvallydata_2017`" 
     	    			+ "WHERE race = \"" + raceVar + "\"AND company = \"" + companyVar + "\";")*/
-	        		"SELECT job,count FROM `vallydata.vallydata_aa` WHERE company = \"" + companyVar + "\" AND race = 'Black';")
-	        
+	        		"SELECT job,count FROM " + companyTable.get(companyVar) + " WHERE company = \"" + companyVar + "\" AND race =  \"" + raceVar + "\";")
 	            // Use standard SQL syntax for queries.
 	            // See: https://cloud.google.com/bigquery/sql-reference/
 	            .setUseLegacySql(false)
@@ -54,8 +72,7 @@ public class Query {
 	    try {
 			queryJob = queryJob.waitFor();
 		} catch (InterruptedException e) {
-		    //return new CompanyInfo(raceVar, companyVar);
-			return new CompanyInfo(aList);
+			return new CompanyInfo(map);
 		}
 	    
 
@@ -74,25 +91,21 @@ public class Query {
 	    
 	    if (result == null) { log.warning("no results"); }
 	    
-	    // Print rows from query
+	      // Print rows from query
 	      for (List<FieldValue> row : result.iterateAll()) {
-	    	  	//aList.clear();
 	        String job = row.get(0).getStringValue();
-	        aList.add(job);
 	        String count = row.get(1).getStringValue();
-	        aList.add(count);
-	        //String count = row.get(2).getStringValue();
-	        //aList.add(count);
-	        //String job_skill = row.get(3).getStringValue();
-	        //aList.add(job_skill);
+	        
+	        if (map.containsKey(job)) {
+                map.get(job).add(count);
+            } else {
+                map.put(job, new ArrayList<String>(Arrays.asList(count)));
+            }
+	       
 	      }
-	    
-	    //return new CompanyInfo(raceVar, companyVar);
-	    return new CompanyInfo(aList);
-	    
-	    
+	 
+	    return new CompanyInfo(map);
+	    	    
 	  }
-	
-	
+		
 	}
-
