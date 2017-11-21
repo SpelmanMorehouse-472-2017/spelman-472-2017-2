@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
 html {
-  background: #b79891; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #b79891, #94716b); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #b79891, #94716b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #DEB887
 }
 
 .buffer {
@@ -48,7 +46,7 @@ select {
 
 input[type="text"],
 input[type="email"] {
-	width: 75%
+	width: 95%
 }
 
 input[type="radio"],
@@ -58,8 +56,9 @@ input[type="checkbox"] {
 
 select {
   padding: 6px;
-  height: 32px;
+  height: 35px;
   border-radius: 2px;
+  width:97%
 }
 
 .next {
@@ -126,46 +125,78 @@ label.light {
 	display: none; 
 }
 
-.container {
-	 margin: auto;
+#title {
+	font-size: 2rem;
+	margin-left: 24%;
+	color: #41403E;
+}
+
+.wrapper {
+	text-align: center;
+}
+
+.fS {
+	margin: auto;
      width: 50%;
 }
 
-.show1 {
+.label {
+	text-align: center;
+}
+
+.insideFS {
+	margin-left: 35%;
 	text-align: center;
 	display: inline-block;
 	-ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
-  background: transparent;
-  padding: 1rem 1rem;
-  margin: 0 1rem;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
-  color: #41403E;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  outline: none;
-  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  border: solid 2px #41403E;
+    background: transparent;
+    padding: 1rem 1rem;
+    margin: 0 1rem;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    color: #41403E;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    outline: none;
+    box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border: solid 2px #41403E;
 }
 
-.show1:hover {
-	box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
-}
+.insideFS:hover {  box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);  }
 
-.special {
-	/*display: inline-block;*/
+.specialBtn {
 	width: 30%;
-	text-align: center;
-	
+	margin-left: 14%;
 }
-
 
 #chartdiv {
-    width		: 100%;
+    width		: 116%;
     height		: 500px;
     font-size	: 11px;
 }
+
+.chartDiv {
+	width: 50%;
+    position: absolute;
+    top: 20%;
+    right: 0%;
+}
+
+.chart {
+  	position: relative;
+}
+
+.res {
+	color: #41403E;
+	width:75%;
+}
+
+.resDiv {
+	text-align: center;
+}
+
+
 

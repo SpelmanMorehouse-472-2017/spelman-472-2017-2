@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/_EG9Hyq9qAW8WJ3HxCxN3RHhQQU\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/ccploe9v7GLFHX4QptfjhXgUMx8\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -125,6 +125,9 @@
      "format": "int32"
     },
     "title": {
+     "type": "string"
+    },
+    "total": {
      "type": "string"
     }
    }

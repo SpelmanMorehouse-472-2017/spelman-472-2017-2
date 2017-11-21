@@ -38,23 +38,9 @@
  <p class="buffer"></p>
  <H1 class="hide">BlackVally</H1>
  <p class="buffer"></p>
- 	
- 	 <!--   <fieldset class="hide"> 
-          <legend class="hide"><span class="number">1</span>Start Here</legend>
-          
-          <p class="buffer"></p>
-          
-          <label class="hide" for="name">Name:</label>
-          <input class="hide" type="text" id="name">
-          
-          <p class="buffer"></p>
-          
-          <label class="hide" for="mail">Email:</label>
-          <input class="hide" type="email" id="mail">
-     </fieldset> -->
-        
-        <fieldset class="hide"> 
-        <label for="job" class="hide">Company:</label>
+ 		
+ <fieldset class="hide"> 
+    <label for="job" class="hide">Choose a Company:</label>
         <select id="company_id" class="hide">
           <optgroup>
             <option value="HPE">HPE</option>
@@ -80,14 +66,8 @@
             <option value="MobileIron">MobileIron</option>
             <option value="Salesforce">Salesforce</option>
           </optgroup>
-        </select> 
-        
-        <label class="hide">Technical Skill Level:</label>
-        <input type="checkbox" id="development" value="Basic"><label class="light" for="development">Basic</label><br>
-        <input type="checkbox" id="design" value="Intermediate"><label class="light hide" for="design">Intermediate</label><br>
-        <input type="checkbox" id="business" value="Advanced"><label class="light hide" for="business">Advanced</label><br> 
-        <input type="checkbox" id="business" value="Expert"><label class="light hide" for="business">Expert</label>  
-      </fieldset>   
+        </select>   
+ </fieldset>   
         
      <p class="buffer"></p>
      
@@ -104,28 +84,47 @@
 
 <p id="title"></p>
 
-<fieldset class="container show1 show" style="display:none;"> 
-        <label for="race" class="show1 show" style="display:none;">Race:</label>
-        <p class="buffer"></p>
-        <select id="race_id" class="show1 show" style="display:none;">
+<p class="buffer"></p>
+<p class="buffer"></p>
+
+<div class="warpper">
+<fieldset class="fS insideFS show" style="display:none;"> 
+	<label for="race" class="insideFS show label" style="display:none;">Race:</label>
+    <p class="buffer"></p>
+    <select id="race_id" class="insideFS show" style="display:none;">
           <optgroup>
-            <option  class="show1 show" value="Black" style="display:none;">Black</option>
-            <option  class="show1 show" value="White" style="display:none;">White</option>
-            <option   class="show1 show" value="Asian" style="display:none;">Asian</option>
-            <option  class="show1 show" value="Latino" style="display:none;">Latino</option>
-            <option  class="show1 show" value="Indian" style="display:none;">Indian</option>
-            <option  class="show1 show" value="Islander" style="display:none;">Islander</option>
-            <option  class="show1 show" value="Mixed race" style="display:none;">Mixed race</option>
+            <option  class="insideFS show" value="Black" style="display:none;">Black</option>
+            <option  class="insideFS show" value="White" style="display:none;">White</option>
+            <option   class="insideFS show" value="Asian" style="display:none;">Asian</option>
+            <option  class="insideFS show" value="Latino" style="display:none;">Latino</option>
+            <option  class="insideFS show" value="Indian" style="display:none;">Indian</option>
+            <option  class="insideFS show" value="Islander" style="display:none;">Islander</option>
+            <option  class="insideFS show" value="Mixed race" style="display:none;">Mixed race</option>
           </optgroup>
-        </select> 
-      </fieldset>   
+     </select> 
+</fieldset> 
+</div>
+        
+<p class="buffer"></p>
+<p class="buffer"></p>
       
-<p class="show special" style="display:none;"><input style="display:none;" id="input_update_race" class="next show" type="button" value="Update Stats"  onclick="will_be_set_after_endpoints_apis_loaded"></p> 
+<p class="show specialBtn" style="display:none;"><input style="display:none;" id="input_update_race" class="next show" type="button" value="Update Stats"  onclick="will_be_set_after_endpoints_apis_loaded"></p> 
 
-<p id="results"></p>
+<div class="chartDiv">
+<div class="hidden chart" id="chartdiv" ></div>
+</div>
 
-<div id="chartdiv" class="hidden"></div>
-  
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+<p class="buffer"></p>
+
+<div class="resDiv">
+<p class="res" id="results"></p>
+</div>
+
 </body>
 
 

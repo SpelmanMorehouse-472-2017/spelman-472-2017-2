@@ -8,6 +8,7 @@ import java.util.List;
 public class CompanyInfo {
     public String message = " ";
     public String title = " ";
+    public String total = " ";
     public Integer proCount = 0;
     public Integer adminCount = 0;
     public Integer leadCount = 0;
@@ -18,10 +19,10 @@ public class CompanyInfo {
     public Integer serviceCount = 0;
     public Integer execCount = 0;
     public Integer laborCount = 0;
-    HashMap<String, Integer> chartData = new HashMap<>();  
     public ArrayList<String> aList;
-
-   public CompanyInfo (HashMap<String, List<String>> map, String titleVar) {
+    HashMap<String, Integer> chartData = new HashMap<>();  
+    
+    public CompanyInfo (HashMap<String, List<String>> map, String titleVar) {
 	   
 	   HashMap<String, Integer> chartData = new HashMap<>();
 	   ArrayList<Integer> countList = new ArrayList<Integer>();
@@ -35,13 +36,21 @@ public class CompanyInfo {
         countList.add(three);
         }
         
+        //make new dataset
         int index = 0;
         for (String key : map.keySet()) {
-        	chartData.put(key, countList.get(index));
+        	if(key == "n/a" || key == "Previous_totals") {
+        		index++;
+        	} else {
+        		chartData.put(key, countList.get(index));
+        	}
         	index++;
         }
         
     
+        //set vars in .js file
+        
+        //var - graph counts
         	this.salesCount = chartData.get("Sales workers");
         	
         	this.laborCount = chartData.get("laborers and helpers");
@@ -63,7 +72,10 @@ public class CompanyInfo {
         	this.leadCount = chartData.get("Lead/Manager");
      
         this.title = titleVar;
-       
-        this.message = chartData.toString(); 
+        
+       //var - raw stats
+        String prettyChartData = chartData.toString();
+        prettyChartData = prettyChartData.replaceAll(",", "         ");
+        this.message = prettyChartData;
     }
 }
