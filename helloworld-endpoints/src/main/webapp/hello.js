@@ -105,6 +105,7 @@ function sayHelloCallback (response) {
 	$( ".hide" ).hide();
 	$( ".show" ).show();
 	$('#results').html(response.message);
+	$('#title').html(response.title);
 	$('#chartdiv').removeClass('hidden');
 	displayChart(response);
 	

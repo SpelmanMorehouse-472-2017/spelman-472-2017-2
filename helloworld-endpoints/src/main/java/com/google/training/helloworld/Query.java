@@ -69,7 +69,7 @@ public class Query {
 	    try {
 			queryJob = queryJob.waitFor();
 		} catch (InterruptedException e) {
-			return new CompanyInfo(map);
+			return new CompanyInfo(map, companyVar);
 		}
 	    
 	    // Check for errors
@@ -99,7 +99,7 @@ public class Query {
 	       
 	      }
 	 
-	    return new CompanyInfo(map);
+	    return new CompanyInfo(map, companyVar);
 	    	    
 	  }
 		

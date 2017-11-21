@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/RPprQ89SLI7dVjNAWU8oiQdgh5A\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/_EG9Hyq9qAW8WJ3HxCxN3RHhQQU\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -121,6 +121,9 @@
     "techCount": {
      "type": "integer",
      "format": "int32"
+    },
+    "title": {
+     "type": "string"
     }
    }
   }

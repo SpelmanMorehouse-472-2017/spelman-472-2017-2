@@ -7,6 +7,7 @@ import java.util.List;
 // Results page code
 public class CompanyInfo {
     public String message = " ";
+    public String title = " ";
     public Integer proCount = 0;
     public Integer adminCount = 0;
     public Integer leadCount = 0;
@@ -20,7 +21,7 @@ public class CompanyInfo {
     HashMap<String, Integer> chartData = new HashMap<>();  
     public ArrayList<String> aList;
 
-   public CompanyInfo (HashMap<String, List<String>> map) {
+   public CompanyInfo (HashMap<String, List<String>> map, String titleVar) {
 	   
 	   HashMap<String, Integer> chartData = new HashMap<>();
 	   ArrayList<Integer> countList = new ArrayList<Integer>();
@@ -61,6 +62,7 @@ public class CompanyInfo {
 
         	this.leadCount = chartData.get("Lead/Manager");
      
+        this.title = titleVar;
        
         this.message = chartData.toString(); 
     }
